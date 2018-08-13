@@ -1,0 +1,22 @@
+# Useful Aliases:
+alias ls='ls --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias histg='history | grep --color=auto'
+alias l='ls -CF --color=auto'
+alias la='ls -A --color=auto '
+alias ll='ls -alF --color=auto'
+alias top='htop'
+alias wget='wget -c'
+alias ..="cd .."
+alias nsort='sort -n'
+alias vi='sudo vim'
+alias composer='/usr/local/bin/composer'
+alias xdf='XDEBUG_CONFIG= php'
+alias getIP='curl ipinfo.io'
+alias vi='sudo vim'
+
+## Useful Variables:
+php56='/usr/local/opt/php@5.6/bin/php'
+DATE=`date +%Y-%m-%d`

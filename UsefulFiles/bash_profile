@@ -1,0 +1,15 @@
+#   Expand $PATH
+export PATH="$PATH:/usr/local/bin/"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+
+#   Set Default Editor (change 'Nano' to the editor of your choice)
+export EDITOR=/usr/bin/vim
+
+#   Set Color Prompt
+export TERM=xterm-color
+export CLICOLOR=1
+
+#   Setup .bash_aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
