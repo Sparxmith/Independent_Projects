@@ -58,12 +58,20 @@ WHERE sins > 0;
 ```
 This is the set of all humans and angels who have sinned.  Its internal representation is identical to "all cats AND all dogs".
 
-#### Even Beyonce sings "To the Left"
+#### There are no Atheists in Foxholes
 ```sql
 SELECT 
     p.firstName, 
     p.lastName,
-    r.denomination,
-    p.conversion
-FROM people
-LEFT JOIN religion ON 
+    r.newDenomination,
+    r.oldDenomination,
+    a.eventDate
+FROM people p
+LEFT JOIN religion r ON p.religionID = r.ID
+LEFT JOIN actions a ON a.personID = p.id
+WHERE p.conversionDate > '1914-07-06'
+    AND p.conversionDate < '1918-11-11'
+    AND a.type = 'Conversion'
+    AND a.locationType = 'Battlefield'
+    AND r.oldDenomination = 'Atheist'
+```
