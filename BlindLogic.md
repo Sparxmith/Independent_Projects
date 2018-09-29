@@ -76,17 +76,22 @@ SELECT
     CONCAT_WS(' ', p.firstName, p.lastName)         AS 'Convert',
     old.name            AS 'Previous Beliefs',
     new.name            AS 'New Beliefs',
-    a.eventDate         AS 'Conversion Date'
+    c.eventDate         AS 'Conversion Date'
 FROM people p
 LEFT JOIN actions a ON a.performantID = p.id
 JOIN conversions c ON c.personID = a.performantID
 LEFT JOIN religion old ON c.oldDenomination = old.id
 LEFT JOIN religion new ON c.newDenomination = new.id
-WHERE p.eventDate > '1914-07-06'
-    AND p.eventDate < '1918-11-11'
+WHERE a.eventDate > '1914-09-06'
+    AND a.eventDate < '1918-11-11'
     AND a.type = 'Conversion'
     AND a.locationType = 'Battlefield'
     AND c.oldDenomination = 'Atheist'
 ```
 
-Start with the set of all people, 
+Firts, let's examine the query. Start with the set of all people, then take the set of all actions committed by people and link them by person's identifier.  While that's being linked, we're also going to link all religious conversions to the Convert's personal ID, and we need information about the religions of the converts so we will link the `religions` table twice, aliasing them `old` to represent the 'from' and `new` to represent the 'to' in the conversion process.
+From those sets and links, we only a particular subset of data to prove or disprove the idea that there are no atheists in foxholes.  World War 1 is infamous for trench warfare, so we filter the events with a date range between the first trench being dug (which we know to have been at the First Battle of the Marne on 9-6-1914) and the end of the war (11-11-1918).  Obviously, we only want `action`s that are of type `Conversion`, but we only want those that happened on the battlefield so we need to filter the `locationType` accordingly.  Lastly, a Catholic becoming a Protestant doesn't matter to an evaluation of atheists, so we need to filter the `Conversion`s to Atheists only.  
+Once all of this is done, we will have a list of all converted Atheists by name, including their specific version of Atheism, and the religion they converted to.  
+Internally, this query is very strange.  It begins with the set off all Christians and then strips away every Christian who did not convert in a trench during WWI before finally selecting the subset of those who were Atheists and not just unrepentant sinners.  All of the other details are just the necessary requirements of interacting with a database to get to that specific idea.  
+
+### That point is pointless
