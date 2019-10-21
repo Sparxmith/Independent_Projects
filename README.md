@@ -8,7 +8,6 @@ All works are license under version 3 of the GNU General Public license.  Please
 - \
     - README.md  
     - TermsAndConditions.htm  
-- *TIL*  --  A collection of "diary" entries where I write down all the things I learn on any given day.
 - *UsefulFiles*  --  A collection of files that I find useful to have extra copies floating around the Intrawebz, things like `.bash_profile` for my Mac, `.bashrc` for my Ubuntu & Debian images, etc.
 - *KnowledgeBase*  --  The distilation of *TIL* into a more cohesive body of work, organized by subject matter instead of date.
     - *VIM*  --  Because mastering `vim` requires more than an afternoon, a week, a month, or even a year...
