@@ -107,6 +107,11 @@ mysql-server-5.7 mysql-server-core-5.7 mysql-workbench mysql-workbench-data \
 php7.2-common php7.2-cli php-pear php7.2-json php7.2-opcache php7.2-readline
     apt -y install xclip xsel
 
+    # Setup basic git configurations automatically
+    git config --global user.name "Eric J. Falgout"
+    git config --global user.email "sparxmith@gmail.com"
+    git config --global credential.helper cache
+
 }
 
 main
